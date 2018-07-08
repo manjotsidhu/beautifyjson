@@ -29,14 +29,14 @@ public class beautifyjson {
 
     String beautifyString;
 
-    String Beautify(File file) throws IOException {
+    public String beautify(File file) throws IOException {
         this.beautifyString = FileUtils.readFileToString(file);
-        return beautify();
+        return logic();
     }
 
-    String Beautify(String str) {
+    public String beautify(String str) {
         this.beautifyString = str;
-        return beautify();
+        return logic();
     }
 
     /**
@@ -44,7 +44,7 @@ public class beautifyjson {
      *
      * @return beautified string
      */
-    public String beautify() {
+    public String logic() {
         this.beautifyString = replaceWithPattern(this.beautifyString, "\t", "");
         this.beautifyString = replaceWithPattern(this.beautifyString, "(?<![\\S\"])(\\s)", "");
         this.beautifyString = replaceWithPattern(this.beautifyString, "\n", "");
